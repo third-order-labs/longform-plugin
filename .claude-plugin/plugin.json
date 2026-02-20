@@ -1,0 +1,8 @@
+{
+  "name": "longform",
+  "version": "0.1.0",
+  "description": "Plan, draft, and maintain long-form fiction with structured continuity tracking, thread management, and living documents. Genre-neutral workflow plugin that scales coherence across novel-length manuscripts.",
+  "author": {
+    "name": "Ian Jones"
+  }
+}
