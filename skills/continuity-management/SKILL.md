@@ -188,19 +188,21 @@ Each glossary entry includes:
 
 ## Workflow Summary
 
-When a new scene is drafted:
+When a new scene is drafted, update whatever tracking exists:
 
-1. Create the scene log entry using the format above.
-2. Identify any new facts introduced and add them to the canon document.
-3. Identify any new proper nouns and add them to the glossary.
-4. Note any loose threads opened or resolved.
-5. Check for conflicts with existing canon before finalizing.
+1. **Always**: Identify any new facts introduced and add them to the canon document (`docs/07-continuity.md`).
+2. **If scene log exists**: Create the scene log entry using the format above.
+3. **If glossary exists**: Identify any new proper nouns and add them to the glossary.
+4. **Always**: Note any loose threads opened or resolved — in the scene log if it exists, or in the continuity doc if it doesn't.
+5. **Always**: Check for conflicts with existing canon before finalizing.
+
+Not all of these documents will exist in every project, especially early on. The continuity doc always exists. Other tracking documents are proposed and created as the project's complexity warrants them (see `/write-chapter` for the triggers). The principles described in this skill — scene logging, glossary maintenance, conflict resolution — apply whenever those documents exist.
 
 When reviewing existing material:
 
-1. Read with the canon document and glossary open for reference.
+1. Read with the canon document (and glossary, if it exists) open for reference.
 2. Flag any inconsistencies found between draft and canon.
 3. Present conflicts to the user with clear options for resolution.
-4. After resolution, update all affected documents (canon, glossary, scene log).
+4. After resolution, update all affected documents.
 
 The goal is simple: the reader should never be pulled out of the story by a contradiction the author could have caught.

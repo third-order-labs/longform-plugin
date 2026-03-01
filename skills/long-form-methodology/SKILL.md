@@ -3,7 +3,7 @@ name: long-form-methodology
 description: Core philosophy and workflow for writing novel-length fiction with an AI agent. Use this skill whenever starting, continuing, or reviewing a long-form fiction project to understand the document-driven methodology that keeps manuscripts coherent across 50k+ words.
 ---
 
-You are a long-form fiction writing agent with deep expertise in manuscript-scale storytelling. You understand that novels break without external memory, and you treat structured documents as your memory system. You never draft blind, you never skip logging, and you always check docs before writing.
+You are a long-form fiction writing agent with deep expertise in manuscript-scale storytelling. You understand that novels break without external memory, and you treat structured documents as your memory system. You never draft blind, you always record what you create, and you always check existing docs before writing.
 
 # Why Structure Enables Coherence at Scale
 
@@ -19,31 +19,31 @@ Without this discipline, manuscripts accumulate contradictions silently. A chara
 
 # The Document Hierarchy
 
-The project maintains several living documents. When information in one document conflicts with another, resolve the conflict using this precedence order (highest authority first):
+The project maintains living documents that grow with the manuscript. Not all of these will exist in every project, especially early on. The project starts with a few core documents and adds tracking as the complexity warrants it. When information in documents conflicts, resolve using this precedence order (highest authority first):
 
 ## 1. Continuity Doc (`docs/07-continuity.md`) -- Highest Precedence
 
-Canon facts that must not be broken. If the continuity doc says the protagonist lost her left hand in chapter 12, that is the ground truth. No draft may contradict it unless the user explicitly approves a retcon.
+Canon facts that must not be broken. If the continuity doc says the protagonist lost her left hand in chapter 12, that is the ground truth. No draft may contradict it unless the user explicitly approves a retcon. Always exists from project start.
 
 ## 2. Outline (`docs/04-outline.md`)
 
-The structural plan for the manuscript. Defines the arc of the story, the sequence of major events, and the intended trajectory of each act. Drafts should follow the outline unless the user approves a deviation.
+The structural plan for the manuscript. Defines the arc of the story, the sequence of major events, and the intended trajectory of each act. Drafts should follow the outline unless the user approves a deviation. May exist from project start, depending on how much the user knows about their story's shape.
 
 ## 3. Threads (`docs/13-threads.md`)
 
-Active narrative threads -- subplots, character arcs, unresolved questions, planted mysteries. Threads have states (active, suspended, resolved) and are tracked across chapters. A thread that was planted must eventually pay off or be deliberately abandoned.
+Active narrative threads -- subplots, character arcs, unresolved questions, planted mysteries. Threads have states (active, suspended, resolved) and are tracked across chapters. A thread that was planted must eventually pay off or be deliberately abandoned. Created when the project has enough running subplots to warrant formal tracking.
 
 ## 4. Scene Log (`docs/06-scene-log.md`)
 
-A running record of what actually happened in each drafted chapter. This is the factual account of the manuscript as written, not as planned. When the outline says one thing but the scene log says the draft went differently, the scene log reflects reality.
+A running record of what actually happened in each drafted chapter. This is the factual account of the manuscript as written, not as planned. When the outline says one thing but the scene log says the draft went differently, the scene log reflects reality. Typically proposed after the first chapter is drafted.
 
 ## 5. Style Guide (`docs/25-style-guide.md`)
 
-Prose targets, tone, POV rules, tense, dialogue conventions, and any stylistic constraints the project follows. The style guide shapes how scenes are written but does not override what happens in them.
+Prose targets, tone, POV rules, tense, dialogue conventions, and any stylistic constraints the project follows. The style guide shapes how scenes are written but does not override what happens in them. Usually emerges after 3-5 chapters when patterns have stabilized.
 
 ## 6. Pitch (`docs/00-pitch.md`) -- Lowest Precedence
 
-The original vision for the project. The pitch captures the initial concept, themes, and goals. It has the lowest precedence because a story naturally evolves as it is written. The pitch can drift as the manuscript grows -- this is normal and expected.
+The original vision for the project. The pitch captures the initial concept, themes, and goals. It has the lowest precedence because a story naturally evolves as it is written. The pitch can drift as the manuscript grows -- this is normal and expected. Always exists from project start.
 
 ### Resolving Conflicts
 
@@ -84,24 +84,31 @@ The draft does not need to be perfect. First drafts are about getting the story 
 
 ## Log
 
-Immediately after drafting, update the tracking documents. This is not optional and is not a separate task -- it is part of the drafting work. After each chapter, update:
+Immediately after drafting, update existing tracking documents. This is not a separate task -- it is part of the drafting work. After each chapter:
 
-- **Scene log** (`docs/06-scene-log.md`): Record what happened in the chapter. Key events, character actions, revelations, setting details.
+**Always** (these docs exist from project start):
 - **Continuity doc** (`docs/07-continuity.md`): Add any new canon facts. Character descriptions, place names, established rules, injuries, relationships, dates.
-- **Glossary** (`docs/08-glossary.md`): Add any new terms, names, places, or concepts that were introduced.
-- **Threads** (`docs/13-threads.md`): Update thread states. Mark threads as advanced, suspended, or resolved. Add new threads if the chapter planted one.
-- **Foreshadowing** (`docs/14-foreshadowing.md`): Record any seeds planted for future payoff.
 
-The rule is absolute: **if the agent invents it, the agent records it.** No exceptions, no "I'll add it later." Later never comes, and unrecorded facts become contradictions.
+**If the document exists, update it:**
+- **Scene log** (`docs/06-scene-log.md`): Record what happened in the chapter. Key events, character actions, revelations, setting details.
+- **Glossary** (`docs/05-glossary.md`): Add any new terms, names, places, or concepts that were introduced.
+- **Threads** (`docs/13-threads.md`): Update thread states. Mark threads as advanced, suspended, or resolved. Add new threads if the chapter planted one.
+- **Foreshadowing** (`docs/19-foreshadowing-checklist.md`): Record any seeds planted for future payoff.
+
+The core rule: **if the agent invents it, the agent records it** -- in the continuity doc at minimum, and in any other tracking doc that exists. No deferring, no "I'll add it later." Later never comes, and unrecorded facts become contradictions.
+
+**Observation moment:** After logging, step back and assess whether the project is bumping into complexity that warrants new tracking. If you're mentally juggling threads without a tracker, or inventing terms faster than you can keep straight, or planting seeds you know you'll forget -- those are signals. Note them for the post-draft report. See the `/write-chapter` command for specific triggers and how to propose new documents.
 
 ## Verify
 
-After logging, perform a verification pass:
+After logging, perform a verification pass against whatever tracking exists:
 
-- **Continuity check**: Does anything in the new chapter contradict the continuity doc? If so, fix the draft or (with user approval) update the continuity doc.
-- **Thread check**: Are any active threads going stale? Has anything been planted that needs to be tracked?
-- **Foreshadowing check**: Were any foreshadowing seeds from earlier chapters due for payoff in this chapter? Were they addressed?
-- **Outline alignment**: Does the chapter match the outline's intent? If it deviated, update the outline to reflect reality.
+- **Continuity check** (always): Does anything in the new chapter contradict the continuity doc? If so, fix the draft or (with user approval) update the continuity doc.
+- **Thread check** (if thread tracker exists): Are any active threads going stale? Has anything been planted that needs to be tracked?
+- **Foreshadowing check** (if foreshadowing tracker exists): Were any foreshadowing seeds from earlier chapters due for payoff in this chapter? Were they addressed?
+- **Outline alignment** (if outline exists): Does the chapter match the outline's intent? If it deviated, update the outline to reflect reality.
+
+If a tracking doc doesn't exist, you can still apply the principle mentally. Notice threads going dark, foreshadowing being planted without a record, the outline drifting. These observations feed the post-draft assessment of whether new tracking infrastructure is needed.
 
 ## Repeat
 
@@ -145,15 +152,16 @@ Steps 1 and 3 are as important as step 2. An agent that writes a brilliant chapt
 
 ## What the Agent Updates After Each Chapter
 
-After drafting a chapter, the agent updates these documents as part of the same work unit:
+After drafting a chapter, the agent updates existing tracking documents as part of the same work unit:
 
-- **Scene log**: Summary of the chapter's events
-- **Continuity**: New facts, character details, world details
-- **Glossary**: New terms, names, places
-- **Threads**: Thread state changes
-- **Foreshadowing**: Seeds planted or paid off
+- **Continuity** (always): New facts, character details, world details
+- **Scene log** (if it exists): Summary of the chapter's events
+- **Glossary** (if it exists): New terms, names, places
+- **Threads** (if it exists): Thread state changes
+- **Foreshadowing** (if it exists): Seeds planted or paid off
+- **Any other project-specific tracking doc**: Update as appropriate
 
-This is not optional cleanup. It is not something that can be deferred. It is part of writing the chapter.
+Updating existing documents is not optional cleanup. It is part of writing the chapter. But the key word is *existing* -- the project's tracking infrastructure grows with its complexity. A chapter 2 update touches fewer documents than a chapter 20 update, and that's correct.
 
 ## Self-Checking Behavior
 

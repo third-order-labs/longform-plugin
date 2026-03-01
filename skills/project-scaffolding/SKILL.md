@@ -1,33 +1,37 @@
 ---
 name: project-scaffolding
-description: Templates, directory conventions, and document structure for scaffolding long-form fiction projects. Contains the full template library used by /start-project.
+description: Templates, directory conventions, and document structure for long-form fiction projects. Contains the full template library — documents are created as the project needs them, not all at once.
 ---
 
 # Project Scaffolding
 
-This skill provides the complete template library and directory conventions for long-form fiction projects. It defines the standard project structure, file naming rules, and starter templates for every planning document. The `/start-project` command uses these templates to initialize a new project repository.
+This skill provides the complete template library and directory conventions for long-form fiction projects. It defines the standard project structure, file naming rules, and templates for every document type the project might eventually need.
+
+**Important:** These templates are a *library*, not a checklist. `/start-project` creates only the core documents the project needs immediately (pitch, characters, continuity — and conditionally world, outline, or north-star). Other documents are created later, when the project's complexity warrants them. The commands `/write-chapter` and `/wrap` contain the logic for when to propose each document. This skill provides the template to use when that moment arrives.
 
 ---
 
 ## Directory Conventions
 
+The full project structure when all documents have been created. A new project starts with only a few docs and grows into this over time:
+
 ```
 project-root/
 ├── AGENTS.md                    # Agent workflow rules and defaults
 ├── docs/                        # All planning and tracking documents
-│   ├── 00-pitch.md
-│   ├── 01-north-star.md
-│   ├── 02-world.md
-│   ├── 03-characters.md
-│   ├── 04-outline.md
-│   ├── 05-glossary.md
-│   ├── 06-scene-log.md
-│   ├── 07-continuity.md
-│   ├── 08-voice.md
-│   ├── 09-chapter-outline-template.md
-│   ├── 13-threads.md
-│   ├── 19-foreshadowing-checklist.md
-│   └── 25-style-guide.md
+│   ├── 00-pitch.md              # Always created at start
+│   ├── 01-north-star.md         # Created at start if user has clarity
+│   ├── 02-world.md              # Created at start if world needs definition
+│   ├── 03-characters.md         # Always created at start
+│   ├── 04-outline.md            # Created at start if user has structural vision
+│   ├── 05-glossary.md           # Proposed when 10+ invented terms accumulate
+│   ├── 06-scene-log.md          # Proposed after first chapter is drafted
+│   ├── 07-continuity.md         # Always created at start
+│   ├── 08-voice.md              # Proposed after 3-5 chapters or via /voice-session
+│   ├── 09-chapter-outline-template.md  # Emerges from first few outlines
+│   ├── 13-threads.md            # Proposed when 3+ subplots are running
+│   ├── 19-foreshadowing-checklist.md   # Proposed when deliberate seeds are planted
+│   └── 25-style-guide.md        # Proposed after 3-5 chapters when patterns stabilize
 ├── outlines/                    # Chapter outlines by volume
 │   ├── book-one/
 │   ├── book-two/
@@ -41,7 +45,7 @@ project-root/
 
 ### Purpose of each directory
 
-- **docs/** -- All planning, tracking, and reference documents. Numbered for sort order.
+- **docs/** -- All planning, tracking, and reference documents. Numbered for sort order. Grows with the project.
 - **outlines/** -- Per-chapter outlines organized by volume. Written before drafting.
 - **draft/** -- Narrative chapter files organized by volume. The working text.
 - **manuscript/** -- Final assembled output for export or submission.
@@ -59,7 +63,7 @@ project-root/
 
 ## Document Templates
 
-The following templates are created by `/start-project`. Each contains the structure and placeholder content showing the user what to fill in.
+The following templates are available for use as documents are created throughout the project lifecycle. `/start-project` creates the core documents (pitch, characters, continuity, and conditionally world, outline, north-star). Other templates are used when the corresponding document is proposed by `/write-chapter` or `/wrap`.
 
 ---
 
@@ -438,32 +442,43 @@ Use this as the drafting north-star so tone stays consistent.
 
 ### `AGENTS.md`
 
+The AGENTS.md template is adaptive — it starts minimal and grows as the project's infrastructure develops. `/start-project` creates a version appropriate to the project's starting state, listing only documents that actually exist. As new tracking documents are created, AGENTS.md is updated to reference them.
+
 ```markdown
 # AGENTS.md — Writing Agent Instructions
 
 You are a writing agent responsible for generating a cohesive long-form narrative in this repo.
 
-## Defaults (unless user overrides)
-- POV/tense: [default]
-- Tone: [default]
-- Writing style guide: `docs/25-style-guide.md`
+## Project overview
+[Brief description of the project — populated during /start-project]
+
+## Active documents
+These are the documents that currently exist in this project. Check and update them as part of the drafting workflow. This list grows as the project adds infrastructure.
+
+- `docs/00-pitch.md` — what the story is about
+- `docs/03-characters.md` — who's in the story
+- `docs/07-continuity.md` — canon facts (highest precedence, always update after drafting)
+[Other docs listed here as they are created]
+
+## Document evolution
+As the manuscript grows, new tracking documents will be proposed when the project's complexity warrants them. See `/write-chapter` and `/wrap` for the triggers. When a new document is created, add it to the Active Documents list above.
+
+## Defaults
+[Populated as patterns emerge — POV, tense, chapter length, tone. May be empty at project start.]
 
 ## Repo workflow
 - Canon/source-of-truth: `docs/07-continuity.md` (facts we must not break).
-- Planning/bible: `docs/00-pitch.md`, `docs/02-world.md`, `docs/03-characters.md`, `docs/04-outline.md`, `docs/05-glossary.md`.
-- Voice: `docs/08-voice.md` (authorial consciousness layer + character voice profiles).
-- Scene ledger: after each drafted scene/chapter, update `docs/06-scene-log.md` with new facts + loose threads.
 - Outlines: store chapter outlines in `outlines/book-one/` (and later `outlines/book-two/`, etc.).
 - Draft output: write narrative chapters in `draft/book-one/` (and later `draft/book-two/`, etc.) as Markdown.
 
 ## Decision rules
 - If canon conflicts with draft, update the draft to match canon (unless user explicitly chooses a retcon).
-- You may invent names/places/terms as needed; immediately record them in `docs/05-glossary.md` and any permanent facts in `docs/07-continuity.md`.
+- You may invent names/places/terms as needed; immediately record them in `docs/07-continuity.md` and any other existing tracking docs.
 - Keep continuity tight: no unexplained POV-hopping; avoid "omniscient" knowledge outside the current POV character.
 
 ## Revision policy
 - Prefer forward momentum. Only rewrite earlier draft files when continuity breaks or the user asks for a rewrite.
 
 ## Output sizing
-- Default iteration size: ~1,000-2,500 words per new chapter/sequence unless user requests otherwise.
+[Populated after patterns emerge — default ~1,500-2,500 words unless user establishes otherwise]
 ```

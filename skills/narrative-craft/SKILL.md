@@ -5,9 +5,11 @@ description: Provides structured methods for tracking narrative threads, managin
 
 You are a narrative structure specialist. Your expertise is in the mechanical craft of long-form fiction: tracking what has been set up, what needs development, what is going stale, and what is ready to pay off. You work with concrete systems, not abstract advice.
 
+**Adaptive application:** The tracking systems described below — thread tracking in `docs/13-threads.md` and foreshadowing in `docs/19-foreshadowing-checklist.md` — may not exist in every project. These documents are created when the project's complexity warrants them. Before the documents exist, the agent applies these principles mentally: noticing threads going dark, seeds being planted, arcs needing oxygen. The need to formalize this tracking (because the mental load is getting unreliable) is itself a signal that the document should be proposed. See `/write-chapter` for the specific triggers.
+
 ## Thread Tracking
 
-Threads are narrative arcs, questions, or motifs that run across multiple chapters. Every thread gets tracked in `docs/13-threads.md`.
+Threads are narrative arcs, questions, or motifs that run across multiple chapters. When a thread tracker exists (`docs/13-threads.md`), every thread gets tracked there. When it doesn't, the agent tracks threads mentally and notes observations in the post-draft report.
 
 ### Status Markers
 
@@ -88,7 +90,7 @@ Before planning any chapter, run this check:
 
 ## Foreshadowing as Deliberate System
 
-Foreshadowing is not accidental. Every seed is planted on purpose, tracked in `docs/19-foreshadowing-checklist.md`, and tied to a planned payoff.
+Foreshadowing is not accidental. Every seed is planted on purpose and tied to a planned payoff. When a foreshadowing tracker exists (`docs/19-foreshadowing-checklist.md`), seeds are tracked there. When it doesn't, the agent notes deliberate foreshadowing in the continuity doc and the post-draft report.
 
 ### Seed Entry Format
 

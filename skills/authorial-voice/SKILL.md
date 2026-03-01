@@ -95,9 +95,9 @@ This is NOT the deep interview treatment that the authorial consciousness layer 
 
 ### Upfront capture
 
-During `/voice-session` or as part of `/start-project`: conversational extraction of the author's worldview, taste, and attention patterns.
+Through `/voice-session` at any point in the project: conversational extraction of the author's worldview, taste, and attention patterns. This can happen before chapter one or after the voice has emerged through several chapters of drafting. Both are valid entry points.
 
-This is lighter than it sounds — not psychoanalysis, more like "what do you notice, what do you skip, what do you hate in fiction, who do you admire." The conversation surfaces the consciousness underneath the style preferences. The output is the authorial consciousness section of `docs/08-voice.md`.
+This is lighter than it sounds — not psychoanalysis, more like "what do you notice, what do you skip, what do you hate in fiction, who do you admire." The conversation surfaces the consciousness underneath the style preferences. The output is the authorial consciousness section of `docs/08-voice.md`. If chapters have already been drafted, the existing prose is itself voice data — the conversation becomes about articulating what's already on the page rather than inventing from scratch.
 
 ### Emergent capture
 

@@ -5,7 +5,9 @@ argument-hint: "<'character [name]' for character voice mode>"
 
 # /voice-session — Capture Authorial Voice
 
-Conversational voice capture for long-form fiction. Produces or extends `docs/08-voice.md` — the authorial consciousness document that sits between continuity and outline in the document hierarchy.
+Conversational voice capture for long-form fiction. Produces or extends `docs/08-voice.md` — the document that captures the narrator's consciousness and character voices.
+
+This can happen at any point in the project. Some writers want to establish voice before chapter one. Others discover it through the first few chapters and capture it once it's emerged. Both are valid — the session adapts to where the project is.
 
 ## Invocation
 
@@ -26,7 +28,7 @@ Produces the authorial consciousness layer — the narrator's worldview, attenti
 
 ### Mode 2: Character Voice
 
-Shorter, focused on a specific POV character. Adds or updates a character voice profile section in the existing `docs/08-voice.md`.
+Shorter, focused on a specific POV character. Adds or updates a character voice profile in `docs/08-voice.md`.
 
 ---
 
@@ -34,7 +36,13 @@ Shorter, focused on a specific POV character. Adds or updates a character voice 
 
 ### Setup
 
-Check if `docs/08-voice.md` already exists. If it does, read it and confirm with the user whether they want to revise the existing voice or start fresh. If revising, note what's already captured and where the gaps are.
+Check if `docs/08-voice.md` already exists.
+
+**If it exists**: Read it. It might have been created empty by `/start-project`, seeded with observations by `/write-chapter`, or populated by a previous voice session. Confirm with the user whether they want to revise, extend, or start fresh. If extending, note what's already captured and where the gaps are.
+
+**If it doesn't exist**: That's fine — this session will create it.
+
+**If chapters have been drafted**: Read the recent drafts before starting the conversation. The existing prose is voice data. You're not starting from zero — you're articulating what's already on the page. This changes the conversation: instead of asking "what kind of narrator do you want?" you can say "I'm noticing [pattern] in your chapters — is that intentional? Is that the narrator you want?"
 
 ### Philosophy
 
@@ -63,6 +71,8 @@ Open with something like this — adapt to the energy, but hit these beats:
 > "So the way this works — I'm going to ask you some questions about how you read, what you notice, what you care about in fiction. But it's not really about your answers. It's about the patterns underneath. I'm trying to build a portrait of the narrator's mind — the consciousness that should sit behind every scene in this novel.
 >
 > Don't compose. Don't try to sound smart about fiction. If you'd normally say 'I don't know' or trail off, do that. The more honest this is, the better the output."
+
+If chapters have already been drafted, adjust the preamble: "I've read your first [N] chapters, so I already have a feel for the narrator. This conversation is about making the implicit explicit — locking in the voice so it stays consistent as the book grows."
 
 Wait for their response before asking the first question. Their response is itself voice data.
 
@@ -147,11 +157,13 @@ If they want to keep going, keep going. Some of the best data comes late when so
 
 ### Output
 
-Generate `docs/08-voice.md` using the template from the `project-scaffolding` skill. Present the full document before saving. Walk through each section: "Does this feel right? What's wrong? What's missing?"
+Generate `docs/08-voice.md`. If the doc already existed with partial content, integrate rather than overwrite. Present the full document before saving. Walk through each section: "Does this feel right? What's wrong? What's missing?"
 
 Revise based on feedback, then save.
 
 Tell them: "This is a starting point. The real calibration happens in the first 3-5 chapters. Every time you react to a draft — 'this feels flat,' 'this character sounds wrong,' 'I love this passage' — that's voice data. The doc sharpens through use."
+
+Update `AGENTS.md` to list the voice doc as an active document if it wasn't there already.
 
 ---
 
@@ -159,9 +171,13 @@ Tell them: "This is a starting point. The real calibration happens in the first 
 
 ### Setup
 
-Read the existing `docs/08-voice.md`. If it doesn't exist, suggest running a full session first: "There's no voice doc yet. Want to do a full session first to establish the narrator's consciousness, or just capture this character's voice?"
+Check if `docs/08-voice.md` exists.
 
-If proceeding with just a character profile, create `docs/08-voice.md` with the authorial consciousness sections left as placeholders and the character section populated.
+**If it exists**: Read it. The character session will add to it.
+
+**If it doesn't exist**: That's fine — create it with the character section. The authorial consciousness layer can come later (through a full session or through emergent capture during drafting). A project can have character voice profiles before it has a narrator voice doc — the character voice is useful on its own for drafting their POV chapters.
+
+**If chapters with this character have been drafted**: Read them. The character's voice is already on the page. This conversation is about articulating and locking in what's emerged, not inventing from scratch.
 
 ### Questions
 
@@ -175,9 +191,11 @@ Shorter and more focused than the full session. Get at how this character thinks
 - "How does this character's voice change over the course of the story? What does Chapter 1 voice sound like vs. the end?"
 - "If you read a page of their POV section with no context, what should tip you off that it's them and not another character?"
 
+If you've read drafted chapters with this character, reference specific moments: "In chapter 4, when [character] did [thing], the interior voice felt [way] — is that right? Is that how they think?"
+
 ### Output
 
-Add a character section to `docs/08-voice.md` under the `## Character Voices` heading:
+Add a character section to `docs/08-voice.md`:
 
 ```markdown
 ### [Character Name] — [Role]
@@ -195,11 +213,11 @@ Present the profile before saving. Revise based on feedback.
 
 ## Self-Updating Mechanism
 
-The voice doc evolves through use. The `/voice-session` command produces the foundation. The following commands feed it:
+The voice doc evolves through use. The `/voice-session` command produces the foundation — or captures what's already emerged. The following commands feed it:
 
-- **`/write-chapter`**: Agent notes voice observations in the post-draft report — new patterns, drift, character voice evolution
-- **`/wrap`**: Check for new voice patterns, contradictions between doc and actual drafting, flag updates needed
-- **`/review`**: Voice consistency audit across recent chapters — narrator consistency, character distinction, anti-pattern check
+- **`/write-chapter`**: Agent notes voice observations in the post-draft report — new patterns, drift, character voice evolution. May propose creating a voice doc if one doesn't exist and patterns have emerged.
+- **`/wrap`**: Check for new voice patterns, contradictions between doc and actual drafting, flag updates needed.
+- **`/review`**: Voice consistency audit across recent chapters — narrator consistency, character distinction, anti-pattern check. May observe voice patterns worth capturing if no voice doc exists yet.
 
 The first 3-5 chapters are explicit calibration. The user should expect to give more feedback early. Each correction is voice data.
 

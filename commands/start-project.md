@@ -1,11 +1,13 @@
 ---
-description: Bootstrap a new long-form fiction project — interactive setup that scaffolds directory structure, planning documents, and tracking files through conversation
+description: Start a new long-form fiction project — collaborative setup that figures out the story with the user and creates only what's needed to start writing
 argument-hint: "<project name, genre, or concept pitch>"
 ---
 
-# /start-project — Bootstrap a New Writing Project
+# /start-project — Start a New Writing Project
 
-Interactive project setup. Walk the user through defining their concept (pitch, characters, world, tone, scope) and scaffold the full document structure. This is a conversation, not a form — broad strokes from the user, the agent fills in structure.
+Start a new project through conversation. Figure out the story with the user, capture enough to start writing, and get out of the way. The goal is not to build infrastructure — it's to reach a state where `/plan-chapter` makes sense for chapter one.
+
+Documents and tracking systems emerge later as the project needs them. Don't front-load structure the user hasn't earned a reason to want yet.
 
 ## Invocation
 
@@ -15,143 +17,121 @@ Interactive project setup. Walk the user through defining their concept (pitch, 
 
 ## Skills Referenced
 
-- `project-scaffolding` — templates and directory conventions
-- `long-form-methodology` — workflow rules and document hierarchy
+- `project-scaffolding` — directory conventions and document templates (used selectively, not exhaustively)
+- `long-form-methodology` — workflow philosophy and document hierarchy
+- `authorial-voice` — voice capture approach (if user wants to establish voice upfront)
 
 ## Workflow
 
-### Step 1: Ask About Scope
+### Phase 1: Have the Conversation
 
-Start by understanding the shape of the project:
+This is the only phase that matters. Everything else is just writing down what you figured out here.
 
-1. **What kind of project?** Standalone novel, series (duology/trilogy/longer), novella
-2. **Genre/tone?** Fantasy, sci-fi, literary, thriller, historical, etc. — and the flavor within that genre
-3. **Working title?** (Can be placeholder — it'll go in the pitch doc)
+Start by letting the user talk about their project. They might show up with a detailed outline or a half-formed feeling. Meet them where they are.
 
-If the user provides a concept up front (in the argument or their message), skip questions they've already answered.
+**What you need to understand before moving on:**
 
-### Step 2: Capture the Pitch → `docs/00-pitch.md`
+- What's the story about? (not a synopsis — what's it *about*)
+- Who's the main character and what's their problem?
+- What kind of book is this? (genre, tone, scope — standalone or series)
+- What's the world like? (broad strokes only — enough to set chapter one somewhere)
 
-Through conversation, extract:
+**What you don't need yet:**
 
-1. **One-line hook**: Who is the protagonist, what situation are they in, what choice do they face?
-2. **Short synopsis**: 3-5 paragraphs covering setup, conflict, stakes, and what makes this story worth telling
-3. **Series note**: Standalone or series — if series, what's the scope of each volume?
-4. **Core contrasts**: 2-3 thematic tensions that drive the story (e.g., freedom vs. security, tradition vs. progress)
+- A complete cast of characters (they'll appear as you write)
+- Full world-building (it fills in through chapters)
+- Locked POV/tense/style decisions (these can emerge from writing the first few chapters — some users know, some discover)
+- An act structure or beat sheet (some users want this, some want to find the shape as they go)
 
-Write to `docs/00-pitch.md` using the template from the `project-scaffolding` skill.
+**How to run this conversation:**
 
-### Step 3: Establish Guardrails → `docs/01-north-star.md`
+- Let the user riff. Ask follow-up questions, not checklists.
+- If they're detailed and prepared, move fast — don't slow them down with questions they've already answered.
+- If they're vague, help them develop the idea. Push on the protagonist's problem and the core tension — that's usually where a vague concept becomes a real story.
+- If they start going deep on world-building or backstory, let them — but recognize when you have enough to start. You can always build more world later. You can't write chapter one without a character and a situation.
 
-Lock down the structural decisions:
+### Phase 2: Capture What You Know
 
-1. **Goal**: What are we building? (one sentence)
-2. **Vibe targets**: Atmosphere, moral center, humor style
-3. **Open decisions**: POV + tense, target length, rating/content boundaries, any decisions the user wants to defer
+Write down what the conversation produced. Only create documents for things you actually discussed and have substance for.
 
-Write to `docs/01-north-star.md`. Mark decided items as locked; leave open items as questions for later.
+**Always create:**
 
-### Step 4: Sketch the World → `docs/02-world.md`
+- **`docs/00-pitch.md`** — The hook, the story concept, the core tensions. This is the anchor document. Capture it in the user's language, not polished synopsis voice.
+- **`docs/03-characters.md`** — The characters you discussed. Protagonist at minimum, plus whoever else came up. Sparse is fine — a name, a want, an arc direction, a voice note. Characters will be added as they appear in drafting.
+- **`docs/07-continuity.md`** — Seed this with any facts established during the conversation. Character names, world rules, established history, anything that's now canon. This starts small and grows with every chapter.
 
-Broad strokes — this will fill in as chapters are written:
+**Create if the conversation produced enough material:**
 
-1. **Geography**: Major regions, climate, distances, key locations
-2. **Society**: Power structures, social classes, economy, culture
-3. **Technology / Magic level**: What exists, what the rules are, what the limits are
-4. **History**: Key events that shaped the current state
-5. **Daily life**: What ordinary life looks like for ordinary people
+- **`docs/02-world.md`** — If the user described the world in any detail. Don't create a world doc with empty section headers — that's a template pretending to be a document. If you only discussed the world briefly, put what you know in the pitch or continuity doc and let a proper world doc emerge when there's enough to warrant one.
+- **`docs/04-outline.md`** — If the user has a sense of the arc, major beats, or sequence structure. Some users show up with an outline. Some want to discover the shape. Both are valid. If the user doesn't have an outline, don't force one — they can start with `/plan-chapter` for just chapter one.
+- **`docs/01-north-star.md`** — If there are specific decisions or guardrails the user wants to lock down (tone, content boundaries, vibe targets). If the conversation didn't naturally produce these, skip this doc — the decisions will surface during writing and can be captured then.
 
-Write to `docs/02-world.md`. It's fine if sections are sparse — living documents grow with the manuscript.
+**Offer but don't push:**
 
-### Step 5: Define Characters → `docs/03-characters.md`
+- **Voice capture** — Mention that `/voice-session` exists for establishing authorial voice upfront. But also explain that voice can emerge naturally through the first few chapters — some writers don't know their narrator's voice until they hear it on the page. If they defer, that's fine. The voice doc gets created when there's voice to capture.
 
-At minimum, establish:
+**Do not create yet:**
 
-1. **Protagonist**: Name, starting state, core want, core need, arc direction, voice
-2. **Mentor/guide** (if applicable): Role, what they offer, what they get wrong
-3. **Antagonist**: Motivation, method, why they believe they're right
-4. **Supporting cast**: Table of key characters with role, trait, relationship to protagonist
+- Glossary (nothing to track)
+- Scene log (nothing's been drafted)
+- Thread tracker (no threads yet)
+- Foreshadowing checklist (too early)
+- Style guide (better to discover through writing than prescribe before it)
+- Chapter outline template (premature — the first chapter outline will establish the pattern)
+- Voice doc with empty sections (an empty voice doc is a lie)
 
-Write to `docs/03-characters.md`. Characters can be added later as they appear in drafting.
+These documents exist in the methodology and will be proposed when the project needs them — typically by `/write-chapter` and `/wrap` as they observe the manuscript growing.
 
-### Step 5b: Offer Voice Capture
-
-After character definition, offer the user the option to establish authorial voice:
-
-- Suggest running `/voice-session` to capture the authorial consciousness layer — the narrator's worldview, attention filter, and stance toward events
-- Alternatively, the user can defer to emergent capture, where the voice doc develops naturally through the first 3-5 chapters of drafting
-- If the user chooses to run `/voice-session`, it will produce `docs/08-voice.md`
-- If deferred, create `docs/08-voice.md` with the template structure (empty sections) so it's ready for emergent capture
-
-### Step 6: Rough Outline → `docs/04-outline.md`
-
-Establish the structural shape:
-
-1. **Act structure**: 3-act, 4-act, or custom — describe the shape
-2. **Major beats**: Opening, inciting incident, turning points, midpoint, climax, resolution
-3. **Sequence breakdown**: Group chapters into sequences with summaries
-
-Write to `docs/04-outline.md`. This is a rough map, not a scene-by-scene breakdown — that comes during `/plan-chapter`.
-
-### Step 7: Initialize Tracking Documents
-
-Create these files using templates from the `project-scaffolding` skill (empty/starter content):
-
-- `docs/05-glossary.md` — empty table, ready for entries
-- `docs/06-scene-log.md` — template header and format reference, no entries yet
-- `docs/07-continuity.md` — baseline sections from what's been established in steps 2-6
-- `docs/08-voice.md` — authorial consciousness and character voice profiles (created empty or via `/voice-session`)
-- `docs/09-chapter-outline-template.md` — reusable chapter outline format
-- `docs/13-threads.md` — format reference and any core threads identified during outlining
-- `docs/19-foreshadowing-checklist.md` — format reference and any seeds identified during outlining
-
-### Step 8: Set Style → `docs/25-style-guide.md`
-
-Establish the prose targets:
-
-1. **Prose register**: Plain/literary/lyrical — target readability
-2. **Chapter length**: Default word count range
-3. **POV and tense**: Lock this down (should match north-star decisions)
-4. **Dialogue style**: Pressure scenes, subtext expectations
-5. **Lived-in checklist**: Texture beats, consequence glue, supporting motives
-6. **Content guidance**: Humor style, violence approach, magic/supernatural presentation
-
-Write to `docs/25-style-guide.md`.
-
-### Step 9: Create AGENTS.md
-
-Write `AGENTS.md` at the project root with:
-
-- Default POV/tense/tone (from north-star and style guide decisions)
-- Repo workflow rules (which docs to check, where to write)
-- Decision rules (canon > draft, record inventions, forward momentum)
-- Voice reference: include `docs/08-voice.md` in the document list for authorial consciousness and character voices
-- Revision policy
-- Output sizing defaults
-
-### Step 10: Create Directory Structure
+### Phase 3: Set Up the Workspace
 
 Create the working directories:
 
 ```
+docs/
 outlines/book-one/
 draft/book-one/
 manuscript/
 ```
 
-If the project is a series, also create `outlines/book-two/`, `draft/book-two/`, etc. as appropriate.
+If the project is a series and the user has a clear sense of the multi-book structure, create directories for subsequent books. If they're focused on book one, just create book one — more can be added later.
 
-### Step 11: Report
+Write `AGENTS.md` at the project root. This is the agent's instruction file for the project — but unlike a fixed config, it should encode the *collaborative methodology*, not prescribe fixed defaults:
 
-Summarize what was created:
-- List all files written with one-line descriptions
-- Note any open decisions that still need resolving
-- Suggest the user's next step: "Run `/plan-chapter` when you're ready to outline your first chapter."
+```markdown
+# [Project Title]
+
+## Defaults
+[Record decisions as they're made. Start with whatever was established during /start-project. Add POV, tense, chapter length, output sizing, etc. as they're figured out during early chapters.]
+
+## Workflow
+- Before drafting: read relevant docs (continuity, outline, voice if it exists, any tracking docs that have been created)
+- After drafting: update continuity with new facts, update any active tracking docs
+- Invent freely during drafting but record immediately — names, places, rules, terms go into continuity (and glossary if one exists)
+- Canon hierarchy: continuity > voice > outline > everything else. If a draft contradicts continuity, fix the draft.
+- Prefer forward momentum over rewriting during first draft
+
+## Document Evolution
+This project uses living documents that emerge as needed. Not all tracking documents exist yet — they'll be proposed when the project's complexity warrants them. When proposing a new document, explain what problem it solves and let the user decide.
+
+## Active Documents
+[List the docs that currently exist and what each one tracks. Update this as new docs are created.]
+```
+
+The key: the AGENTS.md grows with the project. As POV and tense get figured out in the first few chapters, they get added to Defaults. As new tracking docs are created, they get added to Active Documents. The file is a living record of how this specific project works, not a template filled in at setup.
+
+### Phase 4: What's Next
+
+Tell the user what they've got and where to go:
+
+- List the files created with one-line descriptions
+- Note any open decisions that came up during the conversation (POV, tense, structure) — frame them as things to figure out in the first few chapters, not homework
+- Suggest the next step: "Run `/plan-chapter` when you're ready to outline your first chapter."
+- Let them know: "As we write, I'll notice when we need new tracking documents — things like a glossary, thread tracker, or timeline — and suggest them when the project needs them. We're not going to build infrastructure we haven't earned yet."
 
 ## Notes
 
-- This is a **conversation**, not a questionnaire. Let the user describe their vision in their own words, then structure it. Don't fire 20 questions at once.
-- If the user has a detailed concept, move quickly. If they have a vague idea, help them develop it.
-- Populate continuity doc with any facts established during setup (character names, world rules, established history).
-- It's okay for documents to be sparse after setup. The living documents methodology means they'll grow as chapters are drafted.
-- If the user provides an existing project directory, adapt — don't overwrite existing files. Read what's there and fill gaps.
+- This is a **conversation**, not a questionnaire. The phases above are structure for the agent, not steps the user sees. The user should experience this as talking about their book and then having a workspace appear.
+- Match the user's energy and preparation level. Some people show up with a bible. Some show up with a feeling. Both are starting points.
+- If the user provides an existing project directory, adapt — read what's there, understand what they've already built, fill gaps, don't overwrite.
+- Resist the urge to create empty template documents. An empty glossary isn't helpful — it's a reminder that you haven't written enough yet. A glossary that gets created at chapter 5 when you've invented 15 terms and can't remember the spelling of one? That's useful.
+- The hardest thing about this command is knowing when to stop setting up and start writing. Err on the side of "enough to write chapter one." Everything else can come later.
